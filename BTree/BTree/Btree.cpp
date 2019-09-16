@@ -118,7 +118,6 @@ void PrintParentOfXNode(BTree *bTree, DataType X)
 				cout << stack[i]->data << " ";
 			}
 		}
-		//		cout << stack[top]->data << " ";// 访问栈首节点
 		top--;
 
 		if (visitOfrChild[top] == 0)
@@ -169,7 +168,7 @@ void PostOrder_NoDiGui(BTree * bTree, bool(*Visit)(BTree* Node))
 			curNode = curNode->lChild;
 		}
 
-		Visit(stack[top]);				// 访问节点数据
+		Visit(stack[top]);									// 访问节点数据
 		preNode = stack[top--];
 
 		if (top > -1 && preNode == stack[top]->lChild)		// 若从左孩子退回，则右孩子进栈
@@ -335,28 +334,28 @@ void _Inorder_TreadBTree(BTree *&curNode, BTree *&preNode)
 {
 	if (curNode != nullptr)
 	{
-		_Inorder_TreadBTree(curNode->lChild, preNode);	// 递归线索化左子树
+		_Inorder_TreadBTree(curNode->lChild, preNode);		// 递归线索化左子树
 
-		if (curNode->lChild == nullptr) {				// 处理当前节点的左孩子
-			curNode->lChild = preNode;	// 当前节点左孩子为空，更新为指向后继节点
+		if (curNode->lChild == nullptr) {					// 处理当前节点的左孩子
+			curNode->lChild = preNode;						// 当前节点左孩子为空，更新为指向后继节点
 			curNode->flagL = 0;
 		}
 		else
 		{
-			curNode->flagL = 1;			// 当前节点左孩子不为空
+			curNode->flagL = 1;								// 当前节点左孩子不为空
 		}
 
 		if (preNode->rChild == nullptr) {					// 处理上一节点的右孩子
-			preNode->rChild = curNode;	// 上一节点右孩子为空，更新为指向后继节点
+			preNode->rChild = curNode;						// 上一节点右孩子为空，更新为指向后继节点
 			preNode->flagR = 0;
 		}
 		else {
-			preNode->flagR = 1;			// 上一节点右孩子不为空
+			preNode->flagR = 1;								// 上一节点右孩子不为空
 		}
 
-		preNode = curNode;				// 更新上一个节点
+		preNode = curNode;									// 更新上一个节点
 
-		_Inorder_TreadBTree(curNode->rChild, preNode);	// 递归线索化右子树
+		_Inorder_TreadBTree(curNode->rChild, preNode);		// 递归线索化右子树
 	}
 }
 
