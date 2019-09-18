@@ -8,14 +8,14 @@ typedef string DataType;
 
 typedef struct Node
 {
-	DataType		data;		// 数据
-	struct Node*	lChild;		// 左孩子
-	struct Node*	rChild;		// 右孩子
+	DataType        data;       // 数据
+	struct Node*    lChild;     // 左孩子
+	struct Node*    rChild;     // 右孩子
 
-	int				height;		// 树节点的高度
-	double			weight;		// 权重
-	int				flagL;		// 左标记	0是上一个节点，1是左孩子
-	int				flagR;		// 右标记	0是下一个节点，1是右孩子
+	int             height;     // 树节点的高度
+	double          weight;     // 权重
+	int             flagL;      // 左标记   0是上一个节点，1是左孩子
+	int             flagR;      // 右标记   0是下一个节点，1是右孩子
 }BTree;
 
 //--------------------------------- 创建树 -----------------------------------------------------------------------
